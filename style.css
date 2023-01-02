@@ -1,0 +1,393 @@
+<style>
+  * {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family: helvetica, sans-serif;
+    background:#fafafa;
+  }
+  #sidebar {
+    position:fixed;
+    inset: 0,0,0,0;
+    height:100%;
+    width:15%;
+    background: #212121;
+    padding-top:5%;
+    visibility: visible;
+  }
+  #topbar {
+    position:fixed;
+    left:15%;
+    width:90%;
+    height:15%;
+    background:#FFFFFF;
+    box-shadow:0 0px 3px 0px #969696;
+    z-index:10;
+  }
+  h1 {
+    display:flex;
+    align-items:center;
+    height:100%;
+    background:none;
+    margin-left:5%;
+    font-size: 2.5vw;
+    color: #fc7f11;
+  }
+  .navbar-element {
+    
+    display:flex;
+    justify-content:center;
+    background:none;
+    color:#fafafa;
+    margin:0 0 0 0;
+    padding:10% 0 10% 0;
+    transition: all .125s;
+  }
+  #navbar{
+    background:none;
+  }
+  a{
+    background:none;
+  }
+  .navbar-element:hover{
+    background-color:black;
+    cursor:pointer;
+  }
+
+  #update-data-frame {
+    height:85%;
+    width:85%;
+    position:fixed;
+    left:15%;
+    top:15%;
+  }
+  #display-data-frame {
+    height:85%;
+    width:85%;
+    position:fixed;
+    left:15%;
+    top:15%;
+    visibility: hidden;
+  }
+  #add-data-frame {
+    height:85%;
+    width:85%;
+    position:fixed;
+    left:15%;
+    top:15%;
+    visibility: hidden;
+  }
+  #select-student-section {
+    width:45%;
+    height:45%;
+    position:absolute;
+    left:3.5%;
+    top:2.5%;
+    
+  }
+  #dues-box {
+    width:45%;
+    height:45%;
+    position:absolute;
+    left:51.5%;
+    top:2.5%;
+  }
+  #attendance-box {
+    width:45%;
+    height:45%;
+    position:absolute;
+    left:3.5%;
+    top:52.5%;
+  }
+  #remarks-box {
+    width:45%;
+    height:45%;
+    position:absolute;
+    left:51.5%;
+    top:52.5%;
+  }
+  .box-component {
+    background:#FFFFFF;
+    box-shadow:0 0 3px 0px  #969696;
+  }
+  #student-list {
+    top:30%;
+    left:5%;
+  }
+  select {
+    position:absolute;
+    width:50%;
+    border-style: none;
+    background:none;
+    border-bottom: 1px solid #212121;
+    
+    appearance:none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='292.4' height='292.4'%3E%3Cpath fill='%23333' d='M287 69.4a17.6 17.6 0 0 0-13-5.4H18.4c-5 0-9.3 1.8-12.9 5.4A17.6 17.6 0 0 0 0 82.2c0 5 1.8 9.3 5.4 12.9l128 127.9c3.6 3.6 7.8 5.4 12.8 5.4s9.2-1.8 12.8-5.4L287 95c3.5-3.5 5.4-7.8 5.4-12.8 0-5-1.9-9.2-5.5-12.8z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 4px center;
+    background-size: 9px;
+  }
+  select:focus {
+    outline: none;
+  }
+  .box-title {
+    position:absolute;
+    top:5%;
+    left:5%;
+    font-size:4vmin;
+    color:#5b5b5b;
+    font-weight:bold;
+    font-family:georgia, sans-serif;
+    font-variant:small-caps;
+    background:none;
+  }
+  #remarks-input-1 {
+    position:absolute;
+    top:20%;
+    left:5%;
+    width:90%;
+    height:25%;
+    resize:none;
+    outline:none;
+  }
+  #remarks-input-2 {
+    position:absolute;
+    top:70%;
+    left:5%;
+    width:90%;
+    height:25%;
+    resize:none;
+    outline:none;
+  }
+  #week-1 {
+    position:absolute;
+    left:10%;
+    top:25%;
+    font-variant:small-caps;
+    background:none;
+    text-align:center;
+    width:25%;
+    height:20%;
+
+  }
+  .week-label {
+    font-size: 2.5vmin;
+    background:none;
+    justify-content:center;
+    font-weight:bold;
+    font-style:italic;
+  }
+  #week-2 {
+    position:absolute;
+    right:40%;
+    top:25%;
+    font-variant:small-caps;
+    background:none;
+    text-align:center;
+    width:25%;
+    height:20%;
+  }
+  #week-3 {
+    position:absolute;
+    left:10%;
+    bottom:25%;
+    font-variant:small-caps;
+    background:none;
+    text-align:center;
+    width:25%;
+    height:20%;
+
+  }
+  #week-4 {
+    position:absolute;
+    right:40%;
+    bottom:25%;
+    font-variant:small-caps;
+    background:none;
+    text-align:center;
+    width:25%;
+    height:20%;
+  }
+  #week-5 {
+    position:absolute;
+    right:15%;
+    top:25%;
+    font-variant:small-caps;
+    background:none;
+    text-align:center;
+    width:25%;
+    height:20%;
+  }
+  .week-values {
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size: 2.5vmin;
+    text-align:center;
+    background:none;
+  }
+  #attendance-button {
+    right:7.5%;
+    bottom:7.5%;
+  }
+  .red-button {
+    background:#f44336;
+    border-radius: 5px;
+    width:25%;
+    height:15%;
+    position:absolute;
+    color:white;
+    outline:none;
+    border:none;
+     margin-bottom:2px;
+    border-bottom:3px solid #c1342a;
+    font-size:1.75vmin;
+    transition: all .1s;;
+  }
+  .red-button:hover{
+    /* box-shadow: 0 3px 0px 0px #c1342a;; */
+    /* bottom:8%; */
+    /* margin-top:2px; */
+    /* margin-top: 2px; */
+    margin-bottom:3px;
+    border-bottom-width: 4px;
+    cursor: pointer;
+  }
+  .red-button:active {
+    margin-bottom:1px;
+    border-bottom-width: 0px;
+  }
+  #excused-absence-button {
+    bottom:7.5%;
+    right:35%;
+  }
+  
+  #select-week {
+    width:25%;
+    top:10%;
+    right:5%;
+  }
+
+  #dues-input {
+    position:absolute;
+    width:35%;
+    top:75%;
+    left:5%;
+    border-style: none;
+    background:none;
+    border-bottom: 1px solid #212121;
+    outline:none;
+  }
+
+  #update-dues-button {
+    position:absolute;
+    bottom:10%;
+    right:10%;
+  }
+
+  #dues-month-title {
+    position:absolute;
+    background:none;
+    top:42.5%;
+    left:5%;
+    font-weight:bold;
+    font-size:2.5vmin;
+  }
+
+  #dues-id-title {
+    position:absolute;
+    background:none;
+    top:65%;
+    left:5%;
+    font-weight:bold;
+    font-size:2.5vmin;
+  }
+
+  #dues-type-title {
+    position:absolute;
+    background:none;
+    top:20%;
+    left:5%;
+    font-weight:bold;
+    font-size:2.5vmin;
+  }
+
+  #dues-type-select {
+    position:absolute;
+    top:30%;
+    left:5%;
+    width:20%;
+  }
+
+  #select-dues-month {
+    position:absolute;
+    top:52.5%;
+    left:5%;
+    width:40%;
+  }
+
+  #update-remarks-button {
+    position:absolute;
+    bottom:10%;
+    right:10%;
+  }
+
+  #add-student-section {
+    width:45%;
+    height:45%;
+    position:absolute;
+    left:3.5%;
+    top:2.5%;
+  }
+
+  #add-student-label {
+    position:absolute;
+    background:none;
+    top:25%;
+    left:5%;
+    font-weight:bold;
+    font-size:2.5vmin;
+  }
+
+  #add-student-input {
+    position:absolute;
+    width:50%;
+    top:40%;
+    left:5%;
+    border-style: none;
+    background:none;
+    border-bottom: 1px solid #212121;
+    outline:none;
+  }
+
+  #add-student-button {
+    right:7.5%;
+    bottom:7.5%;
+  }
+
+  #add-month-section {
+    width:45%;
+    height:45%;
+    position:absolute;
+    right:3.5%;
+    top:2.5%;
+  }
+
+  #latest-month-label {
+    position:absolute;
+    background:none;
+    left:5%;
+    top:25%;
+    font-size:2.5vmin;
+  }
+
+  #add-month-button {
+    position:absolute;
+    bottom:7.5%;
+    right:7.5%;
+  }
+  #embed-sheet {
+    width:100%;
+    height:100%;
+  }
+</style>
