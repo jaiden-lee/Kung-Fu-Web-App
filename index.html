@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <?!=include("style.css") ?>
+  <head>
+    <base target="_top">
+  </head>
+  <body>
+    <div id="sidebar">
+      <ul id="navbar">
+        <li class="navbar-element" id="update-data">Update Data</li>
+        <li class="navbar-element" id="add-data"> Add Data </li>
+        <li class="navbar-element" id="display-data">Display Data</li>
+      </ul>
+    </div>
+    <div id="topbar">
+      <h1>KFWS Attendance and Vaccine Card Tracking</h1>
+    </div>
+
+
+
+    <div id="update-data-frame">
+      <div id="select-student-section" class="box-component">
+        <label for="student-list" class="box-title"> Choose Student: </label> 
+        <br>
+        <select name="student-list" id="student-list">
+
+        </select>
+      </div>
+
+      <div class = "box-component" id = "dues-box">
+        <label class="box-title"> Student Dues </label>
+        <label id="dues-id-title">Payment ID</label>
+        <input type="text" id="dues-input" placeholder="Enter here..."></input>
+        <button class="red-button" id="update-dues-button">Update</button>
+        <label id="dues-type-title">Payment Method</label>
+        <select id="dues-type-select">
+          <option value="Manual">Manual</option>
+          <option value="Paypal">Paypal</option>
+        </select>
+        <label id="dues-month-title">Choose Month</label>
+        <select id="select-dues-month">
+          
+        </select>
+      </div>
+
+      <div class = "box-component" id = "attendance-box">
+        <label class="box-title"> Attendance </label>
+
+        <div id="week-1">
+          <label class="week-label">Week 1</label>
+          <label class="week-values"></label>
+        </div>
+
+         <div id="week-2">
+          <label class="week-label">Week 2</label>
+          <label class="week-values"></label>
+        </div>
+
+         <div id="week-3">
+          <label class="week-label">Week 3</label>
+          <label class="week-values"></label>
+        </div>
+
+         <div id="week-4">
+          <label class="week-label">Week 4</label>
+          <label class="week-values"></label>
+        </div>
+
+        <div id="week-5">
+          <label class="week-label">Week 5</label>
+          <label class="week-values"></label>
+        </div>
+
+        <button id="attendance-button" class="red-button"> Add 1 Attendance Count </button>
+        
+        <button id="excused-absence-button" class="red-button"> Add 1 Excused Absence </button>
+
+        <select name="select-week" id="select-week">
+          <option value="1"> Week 1 </option>
+          <option value="2"> Week 2 </option>
+          <option value="3"> Week 3 </option>
+          <option value="4"> Week 4 </option>
+          <option value="5"> Week 5 </option>
+        </select>
+      </div>
+
+      <div class = "box-component" id = "remarks-box">
+        <label class="box-title"> Remarks </label>
+        <textarea id="remarks-input-1" rows="4"></textarea>
+        <button class="red-button" id="update-remarks-button">Update</button>
+      </div>
+    </div>
+
+    <div id="add-data-frame">
+      <div class="box-component" id = "add-student-section">
+        <label class="box-title">Add Student</label>
+        <label id="add-student-label">New Student Name:</label>
+        <input type="text" id="add-student-input" placeholder="Enter here..."></label>
+        <button class="red-button" id="add-student-button">Add Student</student>
+      </div>
+      <div class="box-component" id="add-month-section">
+        <label class="box-title">Add Month</label>
+        <label id="latest-month-label"><strong>Latest Month:</strong> MONTH_NAME</label>
+        <button class="red-button" id="add-month-button">Add Next Month</label>
+      </div>
+    </div>
+
+
+    <div id="display-data-frame">
+      <iframe id="embed-sheet" src="REDACTED"></iframe>
+    </div>
+
+  </body>
+  <?!=include("script.js") ?>
+</html>
